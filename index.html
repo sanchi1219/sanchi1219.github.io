@@ -1,12 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>刘保三尺的网站</title>
+    <title>刘保三尺 | 官方主页</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            --accent-color: #ff6b6b;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            margin: 0;
+            color: rgba(255,255,255,0.95);
+            display: block; /* 改为块级布局实现滚动 */
+            padding: 20px 0;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 1rem auto;
+            width: min(90%, 680px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .title {
+            font-size: clamp(2.4rem, 6vw, 3.2rem);
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+            text-shadow: 0 0 15px rgba(255,255,255,0.8),
+                         0 0 30px var(--accent-color);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .cta-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+
+        /* 新增功能卡片样式 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.08);
+            padding: 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 480px) {
+            .hero-card {
+                padding: 1.5rem;
+            }
+            
+            .cta-button {
+                width: 100%;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+        }
+        
+        /* 新增样式，让按钮更大、更显眼 */
+        /* 移除绝对定位相关样式 */
+        .big-cta-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.5rem 3rem;
+            background: var(--accent-color);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            font-size: 1.2rem;
+            width: fit-content;
+            max-width: 400px;
+            padding: 1.5rem 2.5rem;
+            margin: 2rem auto 0;
+        }
+
+        /* 移动端适配调整 */
+        @media (max-width: 480px) {
+            .big-cta-button {
+                width: 100%;
+                max-width: unset;
+                padding: 1.2rem 1.5rem;
+            }
+        }
+            .big-cta-button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+            }
+
+        .hero-card {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* 在移动端适配中调整 */
+        @media (max-width: 480px) {
+            .hero-card {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .big-cta-button {
+                padding: 1.2rem 2rem;
+                margin-top: 1.5rem;
+            }
+        }
+
+        /* 保持移动端适配 */
+        @media (max-width: 480px) {
+            .hero-card {
+                padding-bottom: 4rem;
+                margin-bottom: 2rem;
+            }
+            .big-cta-button {
+                bottom: 1.5rem;
+                margin-top: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h3>你关注刘保三尺了吗</h3>
-    <a href="https://space.bilibili.com/3493139100732125">快来关注吧</a>
+    <div class="hero-card">
+        <h1 class="title">您关注刘保三尺了吗？</h1>
+        <a href="https://space.bilibili.com/3493139100732125" class="cta-button">
+            🚀 立即关注
+        </a>
+        <button onclick="openWebsite('https://afdian/a/shikong')" class="big-cta-button">
+            打开爱发电给我赞助
+        </button>
+        <h1 class="title">您的赞助就是我最大的动力</h1>
+        <h1 class="title">如遇假冒,请联系
+                          147260595@qq.com
+                          l147260595@163.com</h1>
+    </div>
+    <div class="hero-card">
+        <h1 class="title">各平台名称一样，如遇假冒请举报</h1>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>🎁 粉丝专属福利</h4>
+                <p>第一时间获取最新作品与独家内容</p>
+            </div>
+            <div class="feature-card">
+                <h4>💬 互动交流</h4>
+                <p>加入专属社群参与创作讨论</p>
+            </div>
+            <div class="feature-card">
+                <h4>📅 更新日历</h4>
+                <p>掌握最新作品发布时间</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openWebsite(url) {
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
